@@ -1,0 +1,525 @@
+#!/usr/bin/env python
+import rospy
+from geometry_msgs.msg import Twist
+from math import pi as PI
+
+
+
+def move():
+    rospy.init_node('robot_cleaner', anonymous=True)
+    velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+    vel_msg = Twist()
+
+    print("I like to move it, move it!")
+    vel_msg.linear.y = 0
+    vel_msg.linear.z = 0
+    vel_msg.angular.x = 0
+    vel_msg.angular.y = 0
+
+    speed_lin = 3
+    distance = 3
+    vel_msg.linear.x = abs(speed_lin)
+    vel_msg.angular.z = 0
+
+    while not rospy.is_shutdown():
+
+        #1st side
+        speed_lin = 3
+        distance = 1.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #1st rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 300*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #2nd side
+        speed_lin = 3
+        distance = 4.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+       #2nd rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 300*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #3rd side
+        speed_lin = 3
+        distance = 0.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #3rd rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 300*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #4th side
+        speed_lin = 3
+        distance = 4.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #4th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 300*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #5th side
+        speed_lin = 3
+        distance = 0.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #5th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 300*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+       #6th side
+        speed_lin = 3
+        distance = 4.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+       #6th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 240*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #7th side
+        speed_lin = 3
+        distance = 3.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+       #7th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 240*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+       #8th side
+        speed_lin = 3
+        distance = 0.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+       #8th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 300*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+       #9th side
+        speed_lin = 3
+        distance = 1.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+      #9th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 120*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+      #10th side
+        speed_lin = 3
+        distance = 1.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+ 
+        #10th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 120*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #11th side
+        speed_lin = 3
+        distance = 1.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #11th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 180*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #12th side
+        speed_lin = 3
+        distance = 1.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #12th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 60*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #13th side
+        speed_lin = 3
+        distance = 0.9
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+ 
+        #13th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 120*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #14th side
+        speed_lin = 3
+        distance = 3.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+ 
+       #14th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 180*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #15th side
+        speed_lin = 3
+        distance = 3.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #15th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 240*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #16th side
+        speed_lin = 3
+        distance = 2.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #16th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 60*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #17th side
+        speed_lin = 3
+        distance = 0.5
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+        #17th rotation
+	angular_speed = 120*2*PI/360
+	relative_angle = 120*2*PI/360
+	vel_msg.linear.x=0
+	vel_msg.angular.z = abs(angular_speed)
+        t0 = rospy.Time.now().to_sec()
+        current_angle = 0
+        while(current_angle < relative_angle):
+            velocity_publisher.publish(vel_msg)
+            t1 = rospy.Time.now().to_sec()
+            current_angle = angular_speed*(t1-t0)
+        vel_msg.angular.z = 0
+        velocity_publisher.publish(vel_msg)
+
+        #18th side
+        speed_lin = 3
+        distance = 4
+        vel_msg.linear.x = abs(speed_lin)
+        vel_msg.angular.z = 0
+        t0 = rospy.Time.now().to_sec()
+        current_distance = 0
+        while(current_distance < distance):
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()
+            current_distance= speed_lin*(t1-t0)
+	vel_msg.linear.x = 0
+        velocity_publisher.publish(vel_msg)
+
+
+        rospy.spin()
+
+if __name__ == '__main__':
+    try:
+        #Testing our function
+        move()
+    except rospy.ROSInterruptException: pass
+
+       
